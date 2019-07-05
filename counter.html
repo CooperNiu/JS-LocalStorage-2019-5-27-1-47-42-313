@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>计数器</title>
+  </head>
+  <body>
+    <input type="text" id="result"/>
+    <button id="button" onclick="count()">+</button>
+    <script>
+    function count() {
+  readLocalStorage();
+  document.getElementById("result").value = changeNumber();
+}
+
+function readLocalStorage() {
+  createLocalStorage();
+  document.getElementById("result").value = localStorage.clickCount;
+}
+
+function createLocalStorage() {
+  if (!localStorage.clickCount) {
+    localStorage.setItem("clickCount", "0");
+  }
+}
+
+function changeNumber() {
+  return localStorage.clickCount = Number(localStorage.clickCount) + 1;
+}
+    </script>
+  </body>
+</html>
